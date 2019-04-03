@@ -1,3 +1,5 @@
+# written by Hazem Bilbeisi.
+# the purpose of this class is to search patient risk scores using tables provided in the PARS study.
 import time
 
 result = time.localtime()
