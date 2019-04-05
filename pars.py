@@ -103,7 +103,7 @@ class ParsCvdRisk:
             return 4
         if self.get_total_cholesterol() > 300:
             return 5
-
+    @property
     def cvd_risk_score(self):
         if self.age() < 35:
             return 0
@@ -6074,18 +6074,18 @@ class ParsCvdRisk:
                         return 52
 
     def cvd_risk_stratification(self):
-        if self.cvd_risk_score() < 5:
+        if self.cvd_risk_score < 5:
             return 'low risk'
-        elif 5 < self.cvd_risk_score() < 7.5:
+        elif 5 < self.cvd_risk_score < 7.5:
             return 'borderline risk'
-        elif 7.5 < self.cvd_risk_score() < 20:
+        elif 7.5 < self.cvd_risk_score < 20:
             return 'high risk'
         else:
             return 'very high risk'
 
     def __str__(self):
         return f'{self.get_name()} is a {self.age()} year-old {str(self.get_gender()).lower()} patient with 10-year ASCVD risk ' \
-            f'of {self.cvd_risk_score()}% which is {self.cvd_risk_stratification()} according to the PARS study ' \
+            f'of {self.cvd_risk_score}% which is {self.cvd_risk_stratification()} according to the PARS study ' \
             f'score tables.'
 
 salim = ParsCvdRisk('Salim', 'Male', 1940, True, True, 105 , 100, True, 170, 350)
