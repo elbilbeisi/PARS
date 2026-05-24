@@ -293,7 +293,8 @@ function calc(){
   const tcCat = getTcCat(tcV);
   const whrCat = getWhrCat(whr, state.gender);
 
-  const key = `${state.gender}|${state.fh}|${whrCat==='high'}|${state.dm}|${state.sm}|${ageGroup}|${sbpCat}|${tcCat}`;
+  function b(v){ return v ? 'True' : 'False'; }
+  const key = `${state.gender}|${b(state.fh)}|${b(whrCat==='high')}|${b(state.dm)}|${b(state.sm)}|${ageGroup}|${sbpCat}|${tcCat}`;
   const score = SCORES[key];
 
   rc.style.display='block';
